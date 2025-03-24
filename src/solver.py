@@ -42,19 +42,33 @@ def solver():
     else:
         print("No solution exists.")
     
-    fig, ax = pyplot.subplots(figsize=(5, 5))
+    fig, ax = pyplot.subplots(figsize=(6, 6))
     ax.set_axis_off()
-    
+
     def update(frame):
         ax.clear()
         ax.set_axis_off()
+
         table_colors = [["lightgrey" if solving_steps[0][i][j] == 0 else "white" for j in range(9)] for i in range(9)]
-        table_obj = pyplot.table(cellText=solving_steps[frame], loc='center', cellLoc='center', cellColours=table_colors)
+
+        table_obj = ax.table(
+            cellText=solving_steps[frame],
+            cellLoc='center',
+            loc='center',
+            cellColours=table_colors
+        )
+
         table_obj.auto_set_font_size(False)
-        table_obj.set_fontsize(12)
-        table_obj.scale(1.2, 1.2)
-    
-    ani = animation.FuncAnimation(fig, update, frames=len(solving_steps), repeat=False, interval=1)
+        table_obj.set_fontsize(14)
+        table_obj.scale(1.4, 1.4)
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+
+        for key, cell in table_obj.get_celld().items():
+            cell.set_height(1 / 9)
+            cell.set_width(1 / 9)
+
+    ani = animation.FuncAnimation(fig, update, frames=len(solving_steps), repeat=False, interval=200)
     pyplot.show()
 
 def validator(pos, table):
