@@ -1,26 +1,3 @@
-def startReader():
-    # UNA LISTA DE SUBLISTAS DONDE CADA SUBLISTA ES UNA FILA COMPLETA, EMPEZANDO POR ARRIBA
-    # A LA IZQUIERDA COMO 0,0
-    # rows = [
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    #     [0, 0, 0, 0, 0, 0, 0, 0, 0] ];
-    
-    print("sudokuSolver 0.1");
-    myrows = readTxt('input.txt');
-
-    return myrows;
-        
-    
-        
-        
-
 def readTxt(file):
     try:
         with open(file, 'r') as f:
